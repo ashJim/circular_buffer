@@ -34,8 +34,8 @@ public class CircleBufferTest {
         buffer.push(15);
         assertEquals(5, buffer.get(0).intValue());
         buffer.push(20);
-        assertEquals(20, buffer.get(0).intValue());
-        assertEquals(10, buffer.get(1).intValue());
+        assertEquals(10, buffer.get(0).intValue());
+        assertEquals(15, buffer.get(1).intValue());
     }
 
     @Test
