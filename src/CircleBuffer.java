@@ -14,17 +14,31 @@ public class CircleBuffer<T> {
         return data.size() == 0;
     }
 
+    public boolean atCapacity() {
+        return data.size() == capacity;
+    }
+    
     public void push(T item) {
         if(isEmpty()) {
             data.add(item);
             head = 0;
         }
-        else if(data.size() == capacity) {
+        else if(atCapacity()) {
             data.set(head, item);
             head = (head + 1) % capacity;
         }
         else {
             data.add(item);
         }
+    }
+
+    public T pop() {
+        T item = data.get(head);
+        data.set(head, null);
+        return item;
+    }
+
+    public T peek() {
+        return data.get(head);
     }
 }
