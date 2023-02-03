@@ -1,3 +1,4 @@
+package cb;
 import java.util.ArrayList;
 
 public class CircleBuffer<T> {
@@ -40,5 +41,9 @@ public class CircleBuffer<T> {
 
     public T peek() {
         return data.get(head);
+    }
+
+    public T get(int index) {
+        return data.get((head + index) % capacity);
     }
 }
